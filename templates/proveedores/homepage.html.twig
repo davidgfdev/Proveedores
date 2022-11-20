@@ -1,9 +1,169 @@
-<h1>{{title}}</h1>
-
-{{proveedor.nombre}}
-{{proveedor.correo}}
-{{proveedor.telefono}}
-{{proveedor.tipo}}
-{{proveedor.activo}}
-
-<h2><a href="/create"> Crear </a></h2>
+<head>
+    <div class="title">
+        <h1>{{ title }}</h1>
+    </div>
+  {% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />
+  {% endblock %}
+</head>
+<body>
+  <div class="body">
+    <table class="mainTable-large">
+    <tr>
+         <td>
+          ID
+        </td>
+        <td>
+          Nombre
+        </td>
+        <td>
+          Correo
+        </td>
+        <td>
+          Teléfono
+        </td>
+        <td>
+          Tipo
+        </td>
+        <td>
+          Activo
+        </td>
+        <td>
+          Fecha de Creación
+        </td>
+        <td>
+          Fecha de Modificación
+        </td>
+        <td>
+          Editar
+        </td>
+        <td>
+          Borrar
+        </td>
+    </tr>
+      {% for proveedor in proveedores %}
+      <tr>
+        <td>
+          {{ proveedor.id }}
+        </td>
+        <td>
+          {{ proveedor.nombre }}
+        </td>
+        <td>
+          {{ proveedor.correo }}
+        </td>
+        <td>
+          {{ proveedor.telefono }}
+        </td>
+        <td>
+          {{ proveedor.tipo }}
+        </td>
+        <td>
+          {{ proveedor.activo }}
+        </td>
+        <td>
+          {{ proveedor.fechaCreacion }}
+        </td>
+        <td>
+          {{ proveedor.fechaModificacion }}
+        </td>
+        <td>
+          <a href="/form/{{ proveedor.id }}">Editar</a>
+        </td>
+        <td>
+          <a href="/delete/{{ proveedor.id }}">Borrar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <table class="mainTable-medium">
+    <tr>
+         <td>
+          ID
+        </td>
+        <td>
+          Nombre
+        </td>
+        <td>
+          Correo
+        </td>
+        <td>
+          Teléfono
+        </td>
+        <td>
+          Tipo
+        </td>
+        <td>
+          Activo
+        </td>
+        <td>
+          Editar
+        </td>
+        <td>
+          Borrar
+        </td>
+    </tr>
+      {% for proveedor in proveedores %}
+      <tr>
+        <td>
+          {{ proveedor.id }}
+        </td>
+        <td>
+          {{ proveedor.nombre }}
+        </td>
+        <td>
+          {{ proveedor.correo }}
+        </td>
+        <td>
+          {{ proveedor.telefono }}
+        </td>
+        <td>
+          {{ proveedor.tipo }}
+        </td>
+        <td>
+          {{ proveedor.activo }}
+        </td>
+        <td>
+          <a href="/form/{{ proveedor.id }}">Editar</a>
+        </td>
+        <td>
+          <a href="/delete/{{ proveedor.id }}">Borrar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <table class="mainTable-small">
+    <tr>
+         <td>
+          ID
+        </td>
+        <td>
+          Nombre
+        </td>
+        <td>
+          Editar
+        </td>
+        <td>
+          Borrar
+        </td>
+    </tr>
+      {% for proveedor in proveedores %}
+      <tr>
+        <td>
+          {{ proveedor.id }}
+        </td>
+        <td>
+          {{ proveedor.nombre }}
+        </td>
+        <td>
+          <a href="/form/{{ proveedor.id }}">Editar</a>
+        </td>
+        <td>
+          <a href="/delete/{{ proveedor.id }}">Borrar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <a href="/form/-1" class="button"> Crear </a>
+</body>

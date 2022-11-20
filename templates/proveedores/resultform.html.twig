@@ -1,14 +1,12 @@
 <head>
- <div class="title">
+<div class="title">
         <h1>{{ title }}</h1>
     </div>
   {% block stylesheets %}
     <link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />
   {% endblock %}
 </head>
-<body>
-{% block body %}
-{{ form(proveedor_form) }}
-{% endblock %}
+
+<p class="big-text">{{text}}</p>
+
 <a href="/" class="button">Volver</a>
-</body>
