@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Proveedores;
+use App\Entity\Proveedor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -11,23 +11,23 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<Proveedores>
  *
- * @method Proveedores|null find($id, $lockMode = null, $lockVersion = null)
- * @method Proveedores|null findOneBy(array $criteria, array $orderBy = null)
- * @method Proveedores[]    findAll()
- * @method Proveedores[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Proveedor|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Proveedor|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Proveedor[]    findAll()
+ * @method Proveedor[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ProveedoresRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Proveedores::class);
+        parent::__construct($registry, Proveedor::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Proveedores $entity, bool $flush = true): void
+    public function add(Proveedor $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class ProveedoresRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Proveedores $entity, bool $flush = true): void
+    public function remove(Proveedor $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {

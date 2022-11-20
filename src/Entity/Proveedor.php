@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ProveedoresRepository::class)
  */
-class Proveedores
+class Proveedor
 {
     /**
      * @ORM\Id
@@ -36,6 +36,21 @@ class Proveedores
      * @ORM\Column(type="boolean")
      */
     private $activo;
+
+    /**
+     * @ORM\Column(type="string", length=9, nullable=true)
+     */
+    private $telefono;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $fecha_creacion;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $fecha_modificacion;
 
     public function getId(): ?int
     {
@@ -86,6 +101,42 @@ class Proveedores
     public function setActivo(bool $activo): self
     {
         $this->activo = $activo;
+
+        return $this;
+    }
+
+    public function getTelefono(): ?string
+    {
+        return $this->telefono;
+    }
+
+    public function setTelefono(?string $telefono): self
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    public function getFechaCreacion(): ?\DateTimeInterface
+    {
+        return $this->fecha_creacion;
+    }
+
+    public function setFechaCreacion(\DateTimeInterface $fecha_creacion): self
+    {
+        $this->fecha_creacion = $fecha_creacion;
+
+        return $this;
+    }
+
+    public function getFechaModificacion(): ?\DateTimeInterface
+    {
+        return $this->fecha_modificacion;
+    }
+
+    public function setFechaModificacion(?\DateTimeInterface $fecha_modificacion): self
+    {
+        $this->fecha_modificacion = $fecha_modificacion;
 
         return $this;
     }

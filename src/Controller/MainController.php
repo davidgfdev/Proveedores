@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Proveedor;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,10 +13,15 @@ class MainController extends AbstractController
      */
     public function homepage()
     {
-        //$proveedor = new Proveedor("David Guerrero", "davidgf.dev@gmail.com", tipoProveedor::hotel, true);
+        $proveedor = new Proveedor();
+        $proveedor->setNombre("David Guerrero");
+        $proveedor->setCorreo("davidgf.dev@gmail.com");
+        $proveedor->setTelefono("977225432");
+        $proveedor->setTipo("hotel");
+        $proveedor->setActivo(true);
         return $this->render('proveedores/homepage.html.twig', [
             'title' => 'Proveedores',
-            //'proveedor' => $proveedor,
+            'proveedor' => $proveedor,
 
         ]);
     }
