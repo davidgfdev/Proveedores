@@ -45,12 +45,12 @@ class Proveedor
     /**
      * @ORM\Column(type="datetime")
      */
-    private $fecha_creacion;
+    private $fechaCreacion;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $fecha_modificacion;
+    private $fechaModificacion;
 
     public function getId(): ?int
     {
@@ -117,26 +117,26 @@ class Proveedor
         return $this;
     }
 
-    public function getFechaCreacion(): ?\DateTimeInterface
+    public function getFechaCreacion(): string
     {
-        return $this->fecha_creacion;
+        return date_format($this->fechaCreacion, "Y/m/d H:i:s");
     }
 
     public function setFechaCreacion(\DateTimeInterface $fecha_creacion): self
     {
-        $this->fecha_creacion = $fecha_creacion;
+        $this->fechaCreacion = $fecha_creacion;
 
         return $this;
     }
 
-    public function getFechaModificacion(): ?\DateTimeInterface
+    public function getFechaModificacion(): string
     {
-        return $this->fecha_modificacion;
+        return date_format($this->fechaModificacion, "Y/m/d H:i:s");
     }
 
     public function setFechaModificacion(?\DateTimeInterface $fecha_modificacion): self
     {
-        $this->fecha_modificacion = $fecha_modificacion;
+        $this->fechaModificacion = $fecha_modificacion;
 
         return $this;
     }
