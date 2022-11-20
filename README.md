@@ -26,3 +26,6 @@ To learn PhP, the Symfony environment and MySQL I used the following sources:
 - https://symfony.com/doc/current/doctrine.html
 - https://www.youtube.com/watch?v=AtBBtkWn340
 - https://symfonycasts.com/screencast/symfony5/twig-recipe
+
+##Note
+I exported the database used and posted in the project.
